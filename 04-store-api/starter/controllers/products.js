@@ -22,7 +22,6 @@ const getAllProducts = async (req, res) => {
     queryObject.name = { $regex: name, $options: "i" };
   }
 
-  console.log(queryObject);
   let result = Product.find(queryObject);
   //sort
   if (sort) {
