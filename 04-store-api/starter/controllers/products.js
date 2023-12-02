@@ -35,7 +35,13 @@ const getAllProducts = async (req, res) => {
       regEx,
       (match) => `-${operatorMap[match]}-`
     );
-    console.log(filters);
+    const options = ["price", "rating"];
+    filters = filters.split(",").forEach((item) => {
+      const [field, operator, value] = item.split("-");
+      if (options.includes(field)) {
+        queryObject[field] = { [operator]: Number(value) };
+      }
+    });
   }
 
   console.log(queryObject);
