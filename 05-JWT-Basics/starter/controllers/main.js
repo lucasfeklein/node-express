@@ -11,7 +11,7 @@ const dashboard = async (req, res) => {
     });
 };
 
-module.export = {
+module.exports = {
   login,
   dashboard,
 };
